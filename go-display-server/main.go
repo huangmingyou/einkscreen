@@ -268,7 +268,6 @@ void showpic(int x, int y, int w, int h, const char *picfile) {
 				exit(EXIT_FAILURE);
 			} else if (current == 0) {
 				fprintf(stderr, "stdin input is truncated\n");
-				exit(EXIT_FAILURE);
 			} else {
 				total_left -= current;
 				buffer_pointer += current;
