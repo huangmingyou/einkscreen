@@ -106,6 +106,7 @@ load_image_area(int fd, int addr, int x, int y, int w, int h,
 	if (ioctl(fd, SG_IO, &io_hdr) < 0) {
 		perror("SG_IO image load failed");
 	}
+	free(data_buffer);
 	return 0;
 }
 
@@ -144,6 +145,7 @@ display_area(int fd, int addr, int x, int y, int w, int h, int mode)
 	if (ioctl(fd, SG_IO, &io_hdr) < 0) {
 		perror("SG_IO display failed");
 	}
+	free(data_buffer);
 	return 0;
 }
 
@@ -290,6 +292,7 @@ void showpic(int x, int y, int w, int h, const char *picfile) {
 		printf("Starting refresh\n");
 	}
 	display_area(fd, gaddr, x, y, w, h, dismode);
+	free(image);
 }
 */
 import "C"
